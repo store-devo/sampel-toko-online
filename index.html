@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sampel1</title>
+    <link href="./src/output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <h1 class="text-2xl font-bold text-green-600">WARUNG TERBUKA</h1>
+        <a
+          href="#order"
+          class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+        >
+          Pesan Sekarang
+        </a>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="max-w-6xl mx-auto px-4 py-16 text-center">
+      <h2 class="text-4xl font-bold mb-4">
+        Belanja Mudah, Cepat, dan Terjangkau
+      </h2>
+      <p class="mb-6 text-lg">
+        WARUNG TERBUKA menyediakan kebutuhan harian berkualitas dengan harga
+        ramah di kantong.
+      </p>
+      <a
+        href="#produk"
+        class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+      >
+        Lihat Produk
+      </a>
+    </section>
+
+    <!-- PRODUK -->
+    <section id="produk" class="max-w-6xl mx-auto px-4 py-10">
+      <h3 class="text-3xl font-bold mb-6 text-center">Produk Kami</h3>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Card Produk 1 -->
+        <div class="bg-white shadow-md rounded-lg p-4">
+          <img
+            src="/src/img/ella-olsson-fxJTl_gDh28-unsplash.jpg"
+            class="rounded-md w-full mb-3"
+          />
+          <h4 class="font-bold text-lg">Beras Premium 5kg</h4>
+          <p class="text-gray-600 mb-2">Kualitas super, pulen, dan wangi.</p>
+          <p class="font-bold">Rp 68.000</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white shadow-md rounded-lg p-4">
+          <img
+            src="/src/img/ella-olsson-fxJTl_gDh28-unsplash.jpg"
+            class="rounded-md w-full mb-3"
+          />
+          <h4 class="font-bold text-lg">Minyak Goreng 1L</h4>
+          <p class="text-gray-600 mb-2">Cocok untuk menggoreng dan menumis.</p>
+          <p class="font-bold">Rp 15.000</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white shadow-md rounded-lg p-4">
+          <img
+            src="/src/img/ella-olsson-fxJTl_gDh28-unsplash.jpg"
+            class="rounded-md w-full mb-3"
+          />
+          <h4 class="font-bold text-lg">Telur Ayam 1kg</h4>
+          <p class="text-gray-600 mb-2">Fresh setiap hari.</p>
+          <p class="font-bold">Rp 28.000</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM ORDER -->
+    <section id="order" class="max-w-6xl mx-auto px-4 py-16">
+      <h3 class="text-3xl font-bold mb-6 text-center">Pesan Sekarang</h3>
+
+      <div class="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto">
+        <form id="orderForm">
+          <label class="block mb-2 font-semibold">Nama</label>
+          <input
+            id="nama"
+            type="text"
+            class="w-full px-3 py-2 border rounded-md mb-4"
+            placeholder="Nama lengkap"
+            required
+          />
+
+          <label class="block mb-2 font-semibold">Produk</label>
+          <input
+            id="produk"
+            type="text"
+            class="w-full px-3 py-2 border rounded-md mb-4"
+            placeholder="Produk yang dipesan"
+            required
+          />
+
+          <label class="block mb-2 font-semibold">Jumlah</label>
+          <input
+            id="jumlah"
+            type="number"
+            class="w-full px-3 py-2 border rounded-md mb-4"
+            placeholder="Jumlah pesanan"
+            required
+          />
+
+          <button
+            class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700"
+          >
+            Kirim ke WhatsApp
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white text-center py-4 mt-10">
+      © 2025 WARUNG TERBUKA
+    </footer>
+
+    <!-- JS WhatsApp -->
+    <script>
+      document
+        .getElementById("orderForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          let nama = document.getElementById("nama").value;
+          let produk = document.getElementById("produk").value;
+          let jumlah = document.getElementById("jumlah").value;
+
+          let pesan =
+            `Halo kak, saya mau pesan:%0A` +
+            `Nama: ${nama}%0A` +
+            `Produk: ${produk}%0A` +
+            `Jumlah: ${jumlah}%0A`;
+
+          let noWA = "6281234567890"; // ← ganti nomor WhatsApp kamu
+
+          window.open(`https://wa.me/${noWA}?text=${pesan}`, "_blank");
+        });
+    </script>
+  </body>
+</html>
